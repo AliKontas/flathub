@@ -1,0 +1,40 @@
+{
+  "app-id": "io.github.alikontas.CandleRecord",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "candle-record",
+  "finish-args": [
+    "--share=ipc",
+    "--share=network",
+    "--socket=x11",
+    "--socket=pulseaudio",
+    "--filesystem=home",
+    "--device=dri",
+    "--env=GTK_USE_PORTAL=0",
+    "--env=NO_AT_BRIDGE=1"
+  ],
+  "modules": [
+    {
+      "name": "candle-record",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -Dm755 ekran_kayit.py /app/ekran_kayit.py",
+        "install -Dm644 ui.html /app/ui.html",
+        "install -Dm644 icon.png /app/icon.png",
+        "install -Dm644 start.mp3 /app/start.mp3",
+        "install -Dm755 candle-record /app/bin/candle-record",
+        "install -Dm644 io.github.alikontas.CandleRecord.desktop /app/share/applications/io.github.alikontas.CandleRecord.desktop",
+        "install -Dm644 io.github.alikontas.CandleRecord.metainfo.xml /app/share/metainfo/io.github.alikontas.CandleRecord.metainfo.xml",
+        "install -Dm644 icon.png /app/share/icons/hicolor/256x256/apps/io.github.alikontas.CandleRecord.png"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/AliKontas/candle-record-flatpak/archive/refs/tags/v1.0.20.tar.gz",
+          "sha256": "fccc37716b934f920e1b2b78fda262c5f1908c50b87b025c66f1ae6873df12b8"
+        }
+      ]
+    }
+  ]
+}
